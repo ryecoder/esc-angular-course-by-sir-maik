@@ -1,0 +1,32 @@
+<p>Name: </p>
+<input [(ngModel)]="name"/>
+
+<p>Gender: </p>
+<input [(ngModel)]="gender"/>
+
+<p>Title: </p>
+<input [(ngModel)]="title"/>
+
+<p>Tenure: </p>
+<input [(ngModel)]="tenure"/>
+
+<p>Salary: </p>
+<input [(ngModel)]="salary"/>
+
+<p>Display:</p>
+<input [(ngModel)]="display" type="checkbox" checked>
+
+<br>
+<button class="submit" (click)="addEmployee(name, gender, title, tenure, salary, display)">Add Employee</button>
+
+<div class="container">
+  <div *ngFor="let employee of employees; let i = index;">
+    <div *ngIf="employee.display" class="margin-m">
+      <app-employee [employee]="employee"></app-employee>
+      <button (click)="updateEmployee(i, name, gender, title, tenure, salary, display)">Update Employee</button>
+      <button (click)="deleteEmployee(i)">Delete Employee</button>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,11 @@
+<div class="employee-wrapper" >
+  <div class="item-wrapper" [ngClass]="employee.isEdited ? 'edited' : '' ">
+    <div class="name-header">
+      <p class="name">{{employee.name}}</p>
+    </div>
+    <p>Gender: {{employee.gender}}</p>
+    <p>Title: {{employee.title}}</p>
+    <p>Tenure: {{employee.tenure}}</p>
+    <p>Salary: {{employee.salary}}</p>
+  </div>
+</div>
