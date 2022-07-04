@@ -9,6 +9,10 @@ import { HelloWorldComponent } from './hello-world/hello-world.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeadingComponent } from './heading/heading.component';
+import { NotesComponent } from './notes/notes.component';
+import { NoteItemComponent } from './note-item/note-item.component';
+import { NoteEditComponent } from './note-edit/note-edit.component';
+import { NoteNavComponent } from './note-nav/note-nav.component';
 
 @NgModule({
   declarations: [
@@ -16,15 +20,19 @@ import { HeadingComponent } from './heading/heading.component';
     HelloWorldComponent,
     EmployeeComponent,
     HeroesComponent,
-    HeadingComponent
+    HeadingComponent,
+    NotesComponent,
+    NoteItemComponent,
+    NoteEditComponent,
+    NoteNavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     RouterModule.forRoot([
-      {path:'hello-world', component: HelloWorldComponent},
-      {path:'heroes', component: HeroesComponent}
+      {path:'', component: NotesComponent},
+      {path:'note-edit/:id', component: NoteEditComponent}
     ])
   ],
   providers: [],

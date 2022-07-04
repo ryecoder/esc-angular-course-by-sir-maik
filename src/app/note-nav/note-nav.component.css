@@ -1,0 +1,57 @@
+.topnav{
+  overflow: hidden;
+  background-color: #3B3B3B;
+  border-radius: 10px;
+}
+
+.topnav a{
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.topnav .search-bar{
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+
+.topnav input[type=text]{
+  border: none;
+  border-bottom: 2px solid white;
+  background-color: #3B3B3B;
+  padding: 2px;
+}
+
+.topnav input[type=text]:focus{
+  outline: none;
+  caret-color: white;
+  color: white;
+}
+
+.btn{
+  border: none;
+  background-color: #575757;
+  margin-left: 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.btn i{
+  color: white;
+}
+
+.btn:active{
+  background-color: #696969;
+}

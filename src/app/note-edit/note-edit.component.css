@@ -1,0 +1,114 @@
+button{
+  border: none;
+  background-color: #575757;
+  margin-left: 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+  color: white;
+}
+
+button:active{
+  background-color: #696969;
+}
+
+
+.note-item{
+  /* background-color: #FFAB91; */
+  border-radius: 10px;
+  height: 100%;
+  min-height: 500px;
+  margin: 15px;
+  padding: 5px;
+  padding: 20px;
+}
+
+.details{
+  background-color: transparent;
+  resize: none;
+  border: none;
+  width: 100%;
+  font-size: 17px;
+  font-family: inherit;
+  line-height: 1.5;
+  margin-top: 20px;
+}
+
+.details:focus{
+  border: none;
+  outline: none;
+}
+
+.color-options{
+  float: right;
+  margin: 10px;
+}
+
+.color-options label{
+  margin-right: 5px;
+  padding: 3px;
+}
+
+.color-options select{
+  margin-right: 5px;
+  font-family: inherit;
+  border-radius: 5px;
+  padding: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.action-options{
+  overflow: hidden;
+
+  padding-top: 10px;
+}
+
+.action-options label{
+  float: left;
+  margin-top: 5px;
+}
+
+.action-options .buttons{
+  float: right;
+
+  padding-top: 10px;
+}
+
+.action-options button:hover{
+  transition: all 200ms ease;
+  transform: translateY(-4px);
+}
+
+.action-options .delete{
+  background-color: #490000;
+}
+
+.color-options{
+  width: 100%;
+}
+
+.color-options .back{
+  float: left;
+}
+
+.color-options .back:hover{
+  transition: all 200ms ease;
+  transform: translateX(-4px);
+}
+
+.color-options .color-select-options{
+  float: right;
+}
+
+/*
+Colors:
+FFAB91 - peach
+FFCC80 - yellow
+E7ED9B - green
+81DEEA - blue
+CF94DA - violet
+*/

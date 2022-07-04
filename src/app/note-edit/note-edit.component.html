@@ -1,0 +1,37 @@
+<div [ngStyle]="{'background-color': note.color}" class="note-item">
+
+  <div class="color-options">
+
+    <button class="back" routerLink="/">
+      <i [ngStyle]="{'color': note.color}" class="fa fa-arrow-left" title="Back to Main"></i>
+    </button>
+
+    <div class="color-select-options">
+      <label for="">Color:</label>
+      <select name="" id="">
+        <option
+        *ngFor="let color of colors" value="color.color" [selected]="isSelectedColor(color.color)" >{{color.name}}</option>
+      </select>
+    </div>
+
+  </div>
+
+  <textarea [(ngModel)]="details" class="details" name="" id="" cols="30" rows="25">
+
+  </textarea>
+
+  <div class="action-options">
+
+    <label for="">Created: {{note.create_date}}</label>
+    <div class="buttons">
+      <button class="delete" (click)="deleteNote()">
+        <i [ngStyle]="{'color': note.color}" class="fa fa-trash" title="Delete"></i>
+      </button>
+      <button (click)="updateNote()">
+        <i [ngStyle]="{'color': note.color}" class="fa fa-save" title="Save"></i>
+      </button>
+    </div>
+
+  </div>
+
+</div>

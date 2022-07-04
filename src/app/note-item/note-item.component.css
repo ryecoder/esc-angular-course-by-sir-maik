@@ -1,0 +1,29 @@
+.note-item{
+  background-color: #FFAB91;
+  border-radius: 10px;
+  cursor: pointer;
+  height: auto;
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 200px;
+  max-height: 250px;
+  margin: 15px;
+  padding: 5px;
+  padding: 20px;
+}
+
+.note-item:hover{
+  box-shadow: 0px 6px 20px 0 rgb(80, 80, 80);
+  transition: all 200ms ease;
+  transform: translateY(-4px);
+}
+
+.note-item:active{
+  transform: translateY(4px);
+}
+
+.details{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 250px;
+}
