@@ -1,16 +1,16 @@
-<div [ngStyle]="{'background-color': note.color}" class="note-item">
+<div [ngStyle]="{'background-color': color}" class="note-item">
 
   <div class="color-options">
 
-    <button class="back" routerLink="/">
-      <i [ngStyle]="{'color': note.color}" class="fa fa-arrow-left" title="Back to Main"></i>
+    <button class="back" routerLink="/note">
+      <i [ngStyle]="{'color': color}" class="fa fa-arrow-left" title="Back to Main"></i>
     </button>
 
     <div class="color-select-options">
       <label for="">Color:</label>
-      <select name="" id="">
+      <select name="" id="" (change)="onSelectorChange($event)">
         <option
-        *ngFor="let color of colors" value="color.color" [selected]="isSelectedColor(color.color)" >{{color.name}}</option>
+        *ngFor="let color of colors" value="{{color.color}}" [selected]="isSelectedColor(color.color)" >{{color.name}}</option>
       </select>
     </div>
 
@@ -25,10 +25,10 @@
     <label for="">Created: {{note.create_date}}</label>
     <div class="buttons">
       <button class="delete" (click)="deleteNote()">
-        <i [ngStyle]="{'color': note.color}" class="fa fa-trash" title="Delete"></i>
+        <i [ngStyle]="{'color': color}" class="fa fa-trash" title="Delete"></i>
       </button>
       <button (click)="updateNote()">
-        <i [ngStyle]="{'color': note.color}" class="fa fa-save" title="Save"></i>
+        <i [ngStyle]="{'color': color}" class="fa fa-save" title="Save"></i>
       </button>
     </div>
 

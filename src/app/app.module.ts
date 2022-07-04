@@ -13,6 +13,7 @@ import { NotesComponent } from './notes/notes.component';
 import { NoteItemComponent } from './note-item/note-item.component';
 import { NoteEditComponent } from './note-edit/note-edit.component';
 import { NoteNavComponent } from './note-nav/note-nav.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,14 +25,16 @@ import { NoteNavComponent } from './note-nav/note-nav.component';
     NotesComponent,
     NoteItemComponent,
     NoteEditComponent,
-    NoteNavComponent
+    NoteNavComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     RouterModule.forRoot([
-      {path:'', component: NotesComponent},
+      {path:'', component: LoginComponent},
+      {path:'note', component: NotesComponent},
       {path:'note-edit/:id', component: NoteEditComponent}
     ])
   ],

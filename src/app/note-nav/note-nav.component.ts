@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from '../services/note/note.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-note-nav',
@@ -8,20 +9,27 @@ import { NoteService } from '../services/note/note.service';
 })
 export class NoteNavComponent implements OnInit {
 
-  constructor(private noteService: NoteService) { }
+  constructor(
+    private noteService: NoteService,
+    private router:Router
+    ) { }
 
   ngOnInit(): void {
   }
 
   addNote(){
     var note = {
-      'color': '#FFAB91',
+      'color': '#FFCC80',
       'details': 'New note.. click to edit.',
       'create_date' : new Date().toString()
     }
 
     this.noteService.addNote(note)
 
+  }
+
+  isHome(route:string){
+    return this.router.url === route
   }
 
 }

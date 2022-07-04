@@ -2,6 +2,8 @@
   overflow: hidden;
   background-color: #3B3B3B;
   border-radius: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .topnav a{

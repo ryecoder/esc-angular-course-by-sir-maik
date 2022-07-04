@@ -54,21 +54,19 @@ export class NoteEditComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    var selectedColor
     this.id = this.activatedRoute.snapshot.paramMap.get('id') || "0" // return 0 as string and be parse as int
     this.note = this.noteService.getNote(parseInt(this.id))
     this.details = this.note.details
     this.color = this.note.color
-    // TODO: set color selected in dropdown
   }
 
   isSelectedColor(color:string){
-    return color = this.color
+    return color == this.color
   }
 
   deleteNote(){
     this.noteService.deleteNote(parseInt(this.id))
-    this.router.navigate(['/'])
+    this.router.navigate(['/note'])
   }
 
   updateNote(){
@@ -78,6 +76,11 @@ export class NoteEditComponent implements OnInit {
       'create_date' : new Date().toLocaleDateString("en-US")
     }
     this.noteService.updateNote(parseInt(this.id), temp_note)
-    this.router.navigate(['/'])
+    this.router.navigate(['/note'])
+  }
+
+  onSelectorChange(event:any){
+    // console.log(event.target.value)
+    this.color = event.target.value
   }
 }
