@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NoteService } from '../services/note/note.service';
+import { LoginService } from '../services/login/login.service';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-note-edit',
@@ -50,10 +52,18 @@ export class NoteEditComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private noteService: NoteService,
-    private router: Router
+    private router: Router,
+    private loginService: LoginService,
+    private loginComponent : LoginComponent
     ) { }
 
   ngOnInit(): void {
+
+    // TODO: implement redirect to login if not yet authenticated
+    if(!this.loginService.sessionAuthenticated){
+      this.router.navigate(['/'])
+    }
+
     this.id = this.activatedRoute.snapshot.paramMap.get('id') || "0" // return 0 as string and be parse as int
     this.note = this.noteService.getNote(parseInt(this.id))
     this.details = this.note.details

@@ -6,6 +6,7 @@ import { SHA256 } from 'crypto-js';
 })
 export class LoginService {
 
+  sessionAuthenticated = false;
   user:any=[
     {
       'username':'admin',
@@ -17,11 +18,33 @@ export class LoginService {
 
   authenticate(username:string, password:string){
     // entry password
-    var temp_password = SHA256(password).toString()
-    var userAccount = this.user.filter()
+    var tempPassword = SHA256(password).toString()
+    var dbPassword = this.getUserPassword(username)
+
+    if(dbPassword != "NOTFOUND"){
+      if (tempPassword == dbPassword){
+        this.sessionAuthenticated = true
+      } else {
+        this.sessionAuthenticated = false
+      }
+    }
+
+    console.log(this.sessionAuthenticated)
   }
 
-  private getUserPassword(username:string){
-    this.user.filter(())
+  getAuthenticationStatus(){
+    return this.sessionAuthenticated
+  }
+
+  private getUserPassword(username:string): string{
+
+    for(var key of Object.keys(this.user)){
+      if(this.user[key].username == username){
+        // console.log(this.user[key].username + " : " + username + " = " + this.user[key].password)
+        return this.user[key].password
+      }
+    }
+
+    return "NOTFOUND"
   }
 }
