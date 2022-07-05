@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from '../services/note/note.service';
 import { Router } from '@angular/router';
+import { LoginService } from '../services/login/login.service';
 
 @Component({
   selector: 'app-note-nav',
@@ -11,7 +12,8 @@ export class NoteNavComponent implements OnInit {
 
   constructor(
     private noteService: NoteService,
-    private router:Router
+    private router:Router,
+    private loginService: LoginService
     ) { }
 
   ngOnInit(): void {
@@ -30,6 +32,10 @@ export class NoteNavComponent implements OnInit {
 
   isHome(route:string){
     return this.router.url === route
+  }
+
+  logout(){
+    this.loginService.logout()
   }
 
 }

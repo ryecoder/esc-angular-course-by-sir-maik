@@ -15,6 +15,8 @@ import { NoteEditComponent } from './note-edit/note-edit.component';
 import { NoteNavComponent } from './note-nav/note-nav.component';
 import { LoginComponent } from './login/login.component';
 
+import { AuthguardGuard } from './services/authguard/authguard.guard';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,11 +36,11 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     RouterModule.forRoot([
       {path:'', component: LoginComponent},
-      {path:'note', component: NotesComponent},
-      {path:'note-edit/:id', component: NoteEditComponent}
+      {path:'note', component: NotesComponent,  canActivate: [AuthguardGuard]},
+      {path:'note-edit/:id', component: NoteEditComponent,  canActivate: [AuthguardGuard]}
     ])
   ],
-  providers: [],
+  providers: [AuthguardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

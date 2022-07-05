@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SHA256 } from 'crypto-js';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,9 @@ export class LoginService {
     }
   ]
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   authenticate(username:string, password:string){
     // entry password
@@ -29,7 +32,7 @@ export class LoginService {
       }
     }
 
-    console.log(this.sessionAuthenticated)
+    localStorage.setItem('sessionAuthenticated', 'true')
   }
 
   getAuthenticationStatus(){
@@ -40,11 +43,15 @@ export class LoginService {
 
     for(var key of Object.keys(this.user)){
       if(this.user[key].username == username){
-        // console.log(this.user[key].username + " : " + username + " = " + this.user[key].password)
         return this.user[key].password
       }
     }
 
     return "NOTFOUND"
+  }
+
+  logout(){
+    localStorage.setItem('sessionAuthenticated', 'false')
+    this.router.navigate(['/'])
   }
 }

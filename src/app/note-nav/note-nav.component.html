@@ -2,7 +2,10 @@
   <a class="active">NoteApp</a>
   <div class="search-bar" *ngIf="isHome('/note')">
     <button (click)="addNote()" class="btn">
-      <i class="fa fa-add"></i>
+      <i class="fa fa-add" title="New note"></i>
+    </button>
+    <button (click)="logout()" class="btn">
+      <i class="fa fa-sign-out" title="Logout"></i>
     </button>
   </div>
 </div>
